@@ -3,16 +3,9 @@ Easy = [[3,7,0,6,0,9,0,2,1],[4,0,0,0,8,0,0,0,3],[0,0,6,3,0,5,7,0,0],
         [6,0,4,0,0,0,3,0,9],[0,9,0,0,3,0,0,8,0],[2,0,7,0,0,0,1,0,4],
         [0,0,1,9,0,8,4,0,0],[5,0,0,0,6,0,0,0,7],[8,2,0,1,0,4,0,9,5]]
 
-
-
-'''def brutishSudokuSolver(matrix, initialRow = 0, initialColumn = 0):
-    blanks = []
-    row = 0
-    column = 0
-    iterator(matrix, blanks[len(blanks)-2], blanks[len(blanks)-1])'''
 test = []
 blanks = []
-def iterator(matrix, initialRow = 0, initialColumn = 0):
+def brutishSudokuSolver(matrix, initialRow = 0, initialColumn = 0):
     column = initialColumn
     row = initialRow
     #iterates through each row
@@ -45,8 +38,8 @@ def iterator(matrix, initialRow = 0, initialColumn = 0):
                 matrix[row][column] = 0
                 del blanks[-2:]
                 if len(blanks) >= 2:
-                    iterator(matrix, blanks[-2], blanks[-1])
-                iterator(matrix)
+                    brutishSudokuSolver(matrix, blanks[-2], blanks[-1])
+                brutishSudokuSolver(matrix)
                     
             column += 1
         row += 1
@@ -75,4 +68,4 @@ def checker(matrix, row, column):
 
 
 
-iterator(Easy)
+brutishSudokuSolver(Easy)
