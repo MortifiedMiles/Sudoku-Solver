@@ -1,13 +1,13 @@
-import math
+import numpy as np
+
 Easy = [[3,7,0,6,0,9,0,2,1],[4,0,0,0,8,0,0,0,3],[0,0,6,3,0,5,7,0,0],
         [6,0,4,0,0,0,3,0,9],[0,9,0,0,3,0,0,8,0],[2,0,7,0,0,0,1,0,4],
         [0,0,1,9,0,8,4,0,0],[5,0,0,0,6,0,0,0,7],[8,2,0,1,0,4,0,9,5]]
 
-test = []
-blanks = []
-def brutishSudokuSolver(matrix, initialRow = 0, initialColumn = 0):
-    column = initialColumn
-    row = initialRow
+
+'''def brutishSudokuSolver(matrix, row = 0, column = 0):
+    if row == len(matrix) and column == len(matrix):
+        pass
     #iterates through each row
     while row < len(matrix):
         if column == len(matrix):
@@ -43,29 +43,4 @@ def brutishSudokuSolver(matrix, initialRow = 0, initialColumn = 0):
                     
             column += 1
         row += 1
-    print(matrix)
-
-
-def checker(matrix, row, column):
-    # checks columns, rows, and sections for a match to matrix[row][column]
-    # if there is a match, the function returns false, if not, the function returns true
-    check = False
-    while check == False:
-        for num in range(0,9):
-            #check if there is a match in the column
-            if matrix[num][column] == matrix[row][column] and num != row:
-                check = True
-            #check if there is a match in the row
-            elif matrix[row][num] == matrix[row][column]and num != column:
-                check = True
-        #check if there is a match in the section
-        for r in range(0,3):
-            for c in range(0,3):
-                if matrix[row][column] == matrix[math.floor(row/3)*3+r][math.floor(column/3)*3+c] and [row,column] != [math.floor(row/3)*3+r, math.floor(column/3)*3+c]:
-                    check = True
-        return check
-
-
-
-
-brutishSudokuSolver(Easy)
+    print(matrix)'''
